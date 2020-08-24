@@ -23,7 +23,6 @@ jobs:
           sudo npm install -g babel-cli
           cd javascript
           npm install
-          npm run build
           
       - name: Publish
         run: |
