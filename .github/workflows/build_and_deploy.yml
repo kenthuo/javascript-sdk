@@ -20,6 +20,11 @@ jobs:
           cd javascript
           npm install
           npm run build
+          
+      - name: Publish
+        run: |
+          cd javascript
+          ls
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
