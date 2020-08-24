@@ -29,7 +29,6 @@ jobs:
         run: |
           cd javascript
           ls
-          cat ~/.npmrc
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
