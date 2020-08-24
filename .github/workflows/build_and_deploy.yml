@@ -29,6 +29,7 @@ jobs:
         run: |
           cd javascript
           ls
+          npm view kh_identity_verification version
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
