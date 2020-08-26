@@ -21,21 +21,23 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
-
-      - name: Bump version and push tag
-        uses: TriPSs/conventional-changelog-action@master
-        with:
-          github-token: ${{ secrets.NPM_TOKEN }}
-          git-message: 'chore(release): {version}'
-          preset: 'angular'
-          tag-prefix: ''
-          output-file: 'CHANGELOG.md'
         
       - name: Install, Build
         run: |
           sudo npm install -g babel-cli
           cd javascript
           npm install
+          
+      - name: Bump version and push tag
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.NPM_TOKEN }}
+          git-message: 'chore(release): {version}'
+          preset: 'angular'
+          tag-prefix: ''
+          skip-version-file: 'true'
+          version-file: './javascript/package.json'
+          output-file: './javascript/CHANGELOG.md'
           
       - name: Publish
         run: |
