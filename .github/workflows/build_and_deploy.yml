@@ -37,6 +37,7 @@ jobs:
           tag-prefix: ''
           skip-version-file: 'true'
           skip-on-empty: 'false'
+          fallback-version: '1.0.0'
           version-file: './javascript/package.json'
           output-file: './javascript/CHANGELOG.md'
           
