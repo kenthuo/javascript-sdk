@@ -6,6 +6,9 @@ name: Build and Deploy
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - 'package.json'
+      - 'CHANGELOG.md'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,6 +22,15 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org
 
+      - name: Bump version and push tag
+        uses: TriPSs/conventional-changelog-action@master
+        with:
+          github-token: ${{ secrets.NPM_TOKEN }}
+          git-message: 'chore(release): {version}'
+          preset: 'angular'
+          tag-prefix: ''
+          output-file: 'CHANGELOG.md'
+        
       - name: Install, Build
         run: |
           sudo npm install -g babel-cli
