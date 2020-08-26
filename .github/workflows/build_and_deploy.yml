@@ -36,6 +36,7 @@ jobs:
           preset: 'angular'
           tag-prefix: ''
           skip-version-file: 'true'
+          skip-on-empty: 'false'
           version-file: './javascript/package.json'
           output-file: './javascript/CHANGELOG.md'
           
