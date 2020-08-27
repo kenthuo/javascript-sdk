@@ -27,7 +27,11 @@ jobs:
           npm install
       - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
       - run: npm whoami
-      - run: |
+      - name: Run CI
+        run: |
           cd javascript
           npm ci
-      - run: npm run semantic-release
+      - name: Run Semantic Release
+        run: |
+          cd javascript
+          npm run semantic-release
