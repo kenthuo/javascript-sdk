@@ -21,31 +21,14 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         
       - name: Install, Build
         run: |
           sudo npm install -g babel-cli
           cd javascript
           npm install
-          
-      - name: Bump version and push tag
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          github-token: ${{ secrets.NPM_TOKEN }}
-          git-message: 'chore(release): {version}'
-          preset: 'angular'
-          tag-prefix: ''
-          skip-version-file: 'true'
-          skip-on-empty: 'false'
-          fallback-version: '1.0.0'
-          version-file: './javascript/package.json'
-          output-file: './javascript/CHANGELOG.md'
-          
-      - name: Publish
-        run: |
-          cd javascript
-          ls
-          npm view kh_identity_verification version
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
+      - run: npm whoami
+      - run: npm ci
+      - run: npm run semantic-release
