@@ -35,4 +35,5 @@ jobs:
         run: |
           cd javascript
           npm install --save-dev semantic-release
-          npm run semantic-release
+          # npm run semantic-release
+          npx semantic-release
