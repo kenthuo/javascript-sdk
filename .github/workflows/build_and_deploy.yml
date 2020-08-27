@@ -34,5 +34,5 @@ jobs:
       - name: Run Semantic Release
         run: |
           cd javascript
-          sudo npm install -g semantic-release
+          npm install --save-dev semantic-release
           npm run semantic-release
