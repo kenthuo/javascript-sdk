@@ -6,6 +6,9 @@ name: Build and Deploy
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - 'package.json'
+      - 'CHANGELOG.md'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -18,25 +21,31 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         
       - name: Install, Build
         run: |
-          sudo npm install -g babel-cli          
+          sudo npm install -g babel-cli
           cd javascript
           npm install
-      - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
-      - run: npm whoami
-      - name: Run CI
+          
+      - name: Bump version and push tag
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.NPM_TOKEN }}
+          git-message: 'chore(release): {version}'
+          preset: 'angular'
+          tag-prefix: ''
+          skip-version-file: 'true'
+          skip-on-empty: 'false'
+          fallback-version: '1.0.0'
+          version-file: './javascript/package.json'
+          output-file: './javascript/CHANGELOG.md'
+          
+      - name: Publish
         run: |
           cd javascript
-          npm ci
-      - name: Run Semantic Release
-        run: |
-          cd javascript
-          npm install --save-dev semantic-release
-          # npm run semantic-release
-          npx semantic-release
+          ls
+          npm view kh_identity_verification version
+          npm publish --access public
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
