@@ -38,3 +38,5 @@ jobs:
           npm install --save-dev semantic-release
           # npm run semantic-release
           npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
