@@ -28,6 +28,7 @@ import querystring from "querystring";
 * contents of this file should be regarded as internal but are documented for completeness.
 * @alias module:ApiClient
 * @class
+* Add extra comments
 */
 class ApiClient {
     constructor() {
