@@ -1,14 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-name: Build and Deploy
-
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - 'package.json'
-      - 'CHANGELOG.md'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,31 +15,25 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         
       - name: Install, Build
         run: |
-          sudo npm install -g babel-cli
+          sudo npm install -g babel-cli          
           cd javascript
           npm install
-          
-      - name: Bump version and push tag
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          github-token: ${{ secrets.NPM_TOKEN }}
-          git-message: 'chore(release): {version}'
-          preset: 'angular'
-          tag-prefix: ''
-          skip-version-file: 'true'
-          skip-on-empty: 'false'
-          fallback-version: '1.0.0'
-          version-file: './javascript/package.json'
-          output-file: './javascript/CHANGELOG.md'
-          
-      - name: Publish
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
+      - run: npm whoami
+      - name: Run CI
         run: |
           cd javascript
-          ls
-          npm view kh_identity_verification version
-          npm publish --access public
+          npm ci
+      - name: Run Semantic Release
+        run: |
+          cd javascript
+          npm install --save-dev semantic-release
+          # npm run semantic-release
+          npx semantic-release
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
