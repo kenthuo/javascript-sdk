@@ -26,27 +26,29 @@ This method retrieves the consents required for the data sources currently confi
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let countryCode = "countryCode_example"; // String | Country alpha2 code
-let configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
-apiInstance.getConsents(countryCode, configurationName, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var countryCode = "countryCode_example"; // String | Country alpha2 code
+var configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getConsents(countryCode, configurationName, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -79,26 +81,28 @@ This method retrieves all the countries that are available to perform a verifica
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
-apiInstance.getCountryCodes(configurationName, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getCountryCodes(configurationName, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -130,26 +134,28 @@ Gets the provinces states or other subdivisions for a country, mostly matches IS
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let countryCode = "countryCode_example"; // String | Country alpha2 code
-apiInstance.getCountrySubdivisions(countryCode, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var countryCode = "countryCode_example"; // String | Country alpha2 code
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getCountrySubdivisions(countryCode, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -181,27 +187,29 @@ Gets datasource groups configured for your product and country.
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
-let countryCode = "countryCode_example"; // String | Country alpha2 code
-apiInstance.getDatasources(configurationName, countryCode, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
+var countryCode = "countryCode_example"; // String | Country alpha2 code
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getDatasources(configurationName, countryCode, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -234,27 +242,29 @@ This method retrieves details about consents required for data sources currently
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let countryCode = "countryCode_example"; // String | Call CountryCodes to get the countries available to you.
-let configurationName = "'Identity Verification'"; // String | Identity Verification
-apiInstance.getDetailedConsents(countryCode, configurationName, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var countryCode = "countryCode_example"; // String | Call CountryCodes to get the countries available to you.
+var configurationName = "'Identity Verification'"; // String | Identity Verification
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getDetailedConsents(countryCode, configurationName, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -287,27 +297,29 @@ Generates json schema for the API, the schema is dynamic based on the country an
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let countryCode = "countryCode_example"; // String | Country alpha2 code
-let configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
-apiInstance.getFields(countryCode, configurationName, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var countryCode = "countryCode_example"; // String | Country alpha2 code
+var configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getFields(countryCode, configurationName, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -340,27 +352,29 @@ Generates json schema for the API, the schema is dynamic based on the recommende
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let countryCode = "countryCode_example"; // String | Country alpha2 code
-let configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
-apiInstance.getRecommendedFields(countryCode, configurationName, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var countryCode = "countryCode_example"; // String | Country alpha2 code
+var configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getRecommendedFields(countryCode, configurationName, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -393,27 +407,29 @@ Gets the test entities configured for your product and country.
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConfigurationApi();
-let configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
-let countryCode = "countryCode_example"; // String | Country alpha2 code
-apiInstance.getTestEntities(configurationName, countryCode, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConfigurationApi();
+var configurationName = "'Identity Verification'"; // String | The product configuration. Currently \"Identity Verification\" for all products.
+var countryCode = "countryCode_example"; // String | Country alpha2 code
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getTestEntities(configurationName, countryCode, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
