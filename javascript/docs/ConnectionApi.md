@@ -19,22 +19,23 @@ This method enables you to check if your credentials are valid. You will need to
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.ConnectionApi();
-apiInstance.testAuthentication((error, data, response) => {
+var apiInstance = new KhIdentityVerification.ConnectionApi();
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.testAuthentication(callback);
 ```
 
 ### Parameters

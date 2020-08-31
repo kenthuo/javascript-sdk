@@ -20,26 +20,28 @@ This method is used to retrieve the request and results of a verification perfor
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.VerificationsApi();
-let id = "id_example"; // String | The TransactionRecordID from the Verify response, this will be a GUID
-apiInstance.getTransactionRecord(id, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.VerificationsApi();
+var id = "id_example"; // String | The TransactionRecordID from the Verify response, this will be a GUID
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.getTransactionRecord(id, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
@@ -71,26 +73,28 @@ Calling this method will perform a verification. If your account includes addres
 ### Example
 
 ```javascript
-import KhIdentityVerification from 'kh_identity_verification';
-let defaultClient = KhIdentityVerification.ApiClient.instance;
+var KhIdentityVerification = require('kh_identity_verification');
+var defaultClient = KhIdentityVerification.ApiClient.instance;
 // Configure API key authorization: ApiKeyAuth
-let ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
+var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
 ApiKeyAuth.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
-let apiInstance = new KhIdentityVerification.VerificationsApi();
-let verifyRequest = new KhIdentityVerification.VerifyRequest(); // VerifyRequest | 
-apiInstance.verify(verifyRequest, (error, data, response) => {
+var apiInstance = new KhIdentityVerification.VerificationsApi();
+var verifyRequest = new KhIdentityVerification.VerifyRequest(); // VerifyRequest | 
+var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-});
+};
+apiInstance.verify(verifyRequest, callback);
 ```
 
 ### Parameters
+
 
 
 Name | Type | Description  | Notes
