@@ -15,11 +15,3 @@ jobs:
     steps:
       - name: Checkout code from the pull request
         uses: actions/checkout@v2
-
-      - name: version check
-        run: |
-          ls
-          ls ./bin/utils/
-          chmod +x ./bin/utils/check_version.sh
-          cd javascript
-          ../bin/utils/check_version.sh
