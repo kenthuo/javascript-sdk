@@ -20,7 +20,8 @@ jobs:
         
       - name: Install, Build
         run: |
-          mvn
+          mvn -v
+          java -version
           sudo npm install -g babel-cli          
           cd javascript
           npm install
